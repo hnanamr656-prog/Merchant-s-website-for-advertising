@@ -1,14 +1,45 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>التاجر للدعاية</title>
 
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+
+/* ===== INTRO SCREEN ===== */
+.intro-screen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#070a12;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeOut 2.5s forwards;
+}
+
+.intro-screen h1{
+font-size:55px;
+color:#00ffd5;
+animation:zoomIn 1.2s ease;
+}
+
+@keyframes zoomIn{
+0%{transform:scale(0.3);opacity:0;}
+100%{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeOut{
+0%{opacity:1;}
+70%{opacity:1;}
+100%{opacity:0;visibility:hidden;}
+}
 
 /* ===== BODY ===== */
 body{
@@ -72,7 +103,7 @@ transform:translateY(0);
 /* LOGO */
 .logo{
 width:140px;
-margin-bottom:20px;
+margin-bottom:15px;
 filter:drop-shadow(0 0 20px #00ffd5);
 }
 
@@ -85,10 +116,12 @@ overflow:hidden;
 width:0;
 }
 
-/* SUB */
-.sub{
-opacity:.8;
-margin-top:10px;
+/* INTRO TEXT */
+.intro{
+margin-top:15px;
+max-width:650px;
+line-height:1.8;
+opacity:.9;
 }
 
 /* BUTTON */
@@ -102,16 +135,29 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* ===== SECTIONS ===== */
+/* ===== BIG SPACING ===== */
 .section{
-padding:80px 20px;
+padding:140px 20px;
 text-align:center;
 }
 
-/* ===== SERVICES BG AI ===== */
+/* ===== STATS ===== */
+.stats{
+display:flex;
+justify-content:center;
+gap:60px;
+padding:100px 20px;
+}
+
+.stat h2{
+font-size:55px;
+color:#00ffd5;
+margin:0;
+}
+
+/* ===== SERVICES AI BACKGROUND ===== */
 #services{
 position:relative;
-overflow:hidden;
 }
 
 #services::before{
@@ -124,17 +170,16 @@ height:100%;
 background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');
 background-size:cover;
 background-position:center;
-opacity:0.08;
+opacity:0.07;
 z-index:0;
 }
 
-#services h2,
 #services .grid{
 position:relative;
 z-index:2;
 }
 
-/* ===== GRID ===== */
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -142,7 +187,7 @@ gap:20px;
 padding:40px;
 }
 
-/* ===== CARD ===== */
+/* CARD */
 .card{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(10px);
@@ -157,7 +202,35 @@ transform:translateY(-10px);
 border-color:#00ffd5;
 }
 
-/* ===== WHATSAPP ===== */
+/* ===== ABOUT BACKGROUND ===== */
+#about{
+position:relative;
+}
+
+#about::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+opacity:0.08;
+z-index:0;
+}
+
+#about .content{
+position:relative;
+z-index:2;
+max-width:800px;
+margin:auto;
+line-height:2;
+opacity:.9;
+}
+
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -174,22 +247,15 @@ color:#fff;
 text-decoration:none;
 }
 
-/* ===== SCROLL ANIMATION ===== */
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
 </style>
 </head>
 
 <body>
+
+<!-- INTRO -->
+<div class="intro-screen">
+<h1>التاجر للدعاية</h1>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -197,8 +263,8 @@ transform:translateY(0);
 <div>
 <a href="#home">الرئيسية</a>
 <a href="#services">الخدمات</a>
+<a href="#stats">الإحصائيات</a>
 <a href="#about">من نحن</a>
-<a href="#contact">تواصل</a>
 </div>
 </nav>
 
@@ -211,38 +277,64 @@ transform:translateY(0);
 
 <h1 id="typing"></h1>
 
-<p class="sub">إعلانات ممولة • تسويق رقمي • بوتات • مواقع</p>
+<p class="intro">
+شركة التاجر للدعاية هي شركة تسويق رقمي متخصصة في إدارة الإعلانات وبناء العلامات التجارية وتحقيق نتائج حقيقية للمشاريع.
+</p>
 
 <a class="btn" href="https://wa.me/201024941083">ابدأ الآن</a>
 
 </header>
 
+<!-- STATS -->
+<section id="stats" class="stats">
+
+<div class="stat">
+<h2 class="count" data-target="1000">0</h2>
+<p>عميل</p>
+</div>
+
+<div class="stat">
+<h2 class="count" data-target="2100">0</h2>
+<p>حملة</p>
+</div>
+
+<div class="stat">
+<h2 class="count" data-target="5">0</h2>
+<p>سنوات</p>
+</div>
+
+</section>
+
 <!-- SERVICES -->
-<section id="services" class="section reveal">
+<section id="services" class="section">
 
 <h2>خدماتنا</h2>
 
 <div class="grid">
 
-<div class="card"><i class="fa-solid fa-bullhorn"></i> إعلانات ممولة</div>
-<div class="card"><i class="fa-solid fa-robot"></i> بوتات تيليجرام</div>
-<div class="card"><i class="fa-solid fa-chart-line"></i> زيادة تفاعل</div>
-<div class="card"><i class="fa-solid fa-globe"></i> إنشاء مواقع</div>
+<div class="card">📢 إعلانات ممولة</div>
+<div class="card">🤖 بوتات تيليجرام</div>
+<div class="card">📈 زيادة تفاعل</div>
+<div class="card">🌐 إنشاء مواقع</div>
 
 </div>
 
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section reveal">
-<h2>من نحن</h2>
-<p>شركة التاجر للدعاية متخصصة في التسويق الرقمي وبناء العلامات التجارية.</p>
-</section>
+<section id="about" class="section">
 
-<!-- CONTACT -->
-<section id="contact" class="section reveal">
-<h2>تواصل معنا</h2>
-<a class="btn" href="https://wa.me/201024941083">واتساب مباشر</a>
+<h2>من نحن</h2>
+
+<div class="content">
+
+نحن شركة التاجر للدعاية نعمل في مجال التسويق الرقمي وإدارة الحملات الإعلانية.
+نساعد الشركات على النمو وتحقيق نتائج قوية من خلال استراتيجيات احترافية.
+
+نهدف إلى بناء علامات تجارية قوية وزيادة المبيعات وتحقيق أفضل عائد على الاستثمار.
+
+</div>
+
 </section>
 
 <!-- WHATSAPP -->
@@ -252,25 +344,18 @@ transform:translateY(0);
 
 <script>
 
-/* ===== PARALLAX ===== */
+/* PARALLAX */
 window.addEventListener("scroll",()=>{
 let p=document.querySelector(".parallax");
 if(p){
 p.style.transform="translateY("+window.scrollY*0.4+"px)";
 }
-
-// scroll reveal
-document.querySelectorAll(".reveal").forEach(el=>{
-let top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-100){
-el.classList.add("active");
-}
-});
 });
 
-/* ===== TYPING ===== */
+/* TYPING */
 let text="نحوّل فكرتك إلى عملاء 🔥";
 let i=0;
+
 function typing(){
 if(i<text.length){
 document.getElementById("typing").innerHTML+=text.charAt(i);
@@ -279,6 +364,33 @@ setTimeout(typing,100);
 }
 }
 typing();
+
+/* COUNTERS */
+const counters=document.querySelectorAll(".count");
+
+function runCounters(){
+counters.forEach(counter=>{
+counter.innerText="0";
+
+let target=+counter.getAttribute("data-target");
+let count=0;
+let speed=target/100;
+
+function update(){
+count+=speed;
+if(count<target){
+counter.innerText=Math.ceil(count);
+requestAnimationFrame(update);
+}else{
+counter.innerText=target;
+}
+}
+
+update();
+});
+}
+
+window.addEventListener("scroll",runCounters);
 
 </script>
 
