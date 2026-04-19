@@ -9,7 +9,39 @@
 
 <style>
 
-/* ===== GENERAL ===== */
+/* ===== INTRO SCREEN ===== */
+.intro{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#070a12;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeOut 2.5s forwards;
+}
+
+.intro h1{
+font-size:60px;
+color:#00ffd5;
+animation:zoomIn 1.2s ease;
+}
+
+@keyframes zoomIn{
+0%{transform:scale(0.3);opacity:0;}
+100%{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeOut{
+0%{opacity:1;}
+70%{opacity:1;}
+100%{opacity:0;visibility:hidden;}
+}
+
+/* ===== BODY ===== */
 body{
 margin:0;
 font-family:Arial;
@@ -19,7 +51,7 @@ overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
-/* ===== NAV ===== */
+/* NAV */
 nav{
 display:flex;
 justify-content:space-between;
@@ -32,13 +64,7 @@ top:0;
 z-index:1000;
 }
 
-nav a{
-color:#fff;
-margin:0 10px;
-text-decoration:none;
-}
-
-/* ===== HERO ===== */
+/* HERO */
 .hero{
 height:100vh;
 display:flex;
@@ -47,7 +73,6 @@ justify-content:center;
 align-items:center;
 text-align:center;
 position:relative;
-overflow:hidden;
 }
 
 .hero::before{
@@ -68,18 +93,15 @@ margin-bottom:15px;
 filter:drop-shadow(0 0 20px #00ffd5);
 }
 
-#typing{
-font-size:40px;
-border-right:3px solid #00ffd5;
-white-space:nowrap;
-overflow:hidden;
-width:0;
+/* TITLE */
+.hero h2{
+font-size:42px;
+color:#00ffd5;
 }
 
-.intro{
-margin-top:15px;
-max-width:650px;
-line-height:1.8;
+.hero p{
+max-width:700px;
+line-height:2;
 opacity:.9;
 }
 
@@ -93,68 +115,46 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* ===== SECTION SPACING ===== */
+/* ===== SECTIONS ===== */
 .section{
-padding:160px 20px;
+padding:150px 20px;
 text-align:center;
 }
 
-/* ===== DIFFERENT BACKGROUNDS ===== */
-#services{
-position:relative;
-}
-
-#services::before{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-opacity:0.08;
-z-index:0;
-}
-
-#about{
-position:relative;
-}
-
-#about::before{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-opacity:0.08;
-z-index:0;
-}
-
-#contact{
-position:relative;
-}
-
+/* ===== BACKGROUNDS ===== */
+#services::before,
+#about::before,
 #contact::before{
 content:"";
 position:absolute;
 width:100%;
 height:100%;
-background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');
+left:0;
+top:0;
 background-size:cover;
 background-position:center;
 opacity:0.08;
 z-index:0;
 }
 
-/* content layer */
+#services{position:relative;}
+#services::before{background:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');}
+
+#about{position:relative;}
+#about::before{background:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');}
+
+#contact{position:relative;}
+#contact::before{background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');}
+
 .content{
 position:relative;
 z-index:2;
+max-width:850px;
+margin:auto;
+line-height:2.2;
 }
 
-/* ===== GRID ===== */
+/* ===== SERVICES ===== */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -167,8 +167,8 @@ background:rgba(255,255,255,0.05);
 backdrop-filter:blur(10px);
 padding:25px;
 border-radius:15px;
-border:1px solid rgba(255,255,255,0.1);
 transition:.4s;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover{
@@ -180,14 +180,15 @@ border-color:#00ffd5;
 .stats{
 display:flex;
 justify-content:center;
-gap:60px;
-padding:100px 20px;
+gap:70px;
+padding:120px 20px;
 }
 
 .stat h2{
-font-size:55px;
+font-size:60px;
 color:#00ffd5;
 margin:0;
+text-shadow:0 0 20px rgba(0,255,213,0.4);
 }
 
 /* ===== WHATSAPP ===== */
@@ -207,10 +208,22 @@ color:#fff;
 text-decoration:none;
 }
 
-/* ===== FOOTER ===== */
+/* ===== SCROLL ANIMATION ===== */
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* FOOTER */
 footer{
 text-align:center;
-padding:30px;
+padding:25px;
 background:rgba(255,255,255,0.05);
 }
 
@@ -219,26 +232,25 @@ background:rgba(255,255,255,0.05);
 
 <body>
 
+<!-- INTRO -->
+<div class="intro">
+<h1>التاجر للدعاية</h1>
+</div>
+
 <!-- NAV -->
 <nav>
 <h1>التاجر للدعاية</h1>
-<div>
-<a href="#home">الرئيسية</a>
-<a href="#services">الخدمات</a>
-<a href="#about">من نحن</a>
-<a href="#contact">تواصل</a>
-</div>
 </nav>
 
 <!-- HERO -->
-<header id="home" class="hero">
+<header class="hero">
 
 <img class="logo" src="https://raw.githubusercontent.com/hnanamr656-prog/Company-website/main/logo.jpeg">
 
-<h1 id="typing"></h1>
+<h2>شركة تسويق رقمية احترافية</h2>
 
-<p class="intro">
-شركة التاجر للدعاية متخصصة في التسويق الرقمي وإدارة الإعلانات وبناء العلامات التجارية وتحقيق نتائج حقيقية.
+<p>
+نحن شركة التاجر للدعاية نعمل على تحويل المشاريع إلى علامات تجارية قوية من خلال التسويق الرقمي والإعلانات الممولة وإدارة السوشيال ميديا.
 </p>
 
 <a class="btn" href="https://wa.me/201024941083">ابدأ الآن</a>
@@ -246,19 +258,19 @@ background:rgba(255,255,255,0.05);
 </header>
 
 <!-- STATS -->
-<section class="stats section">
+<section class="stats reveal">
 
-<div class="stat">
+<div>
 <h2 class="count" data-target="1000">0</h2>
 <p>عميل</p>
 </div>
 
-<div class="stat">
+<div>
 <h2 class="count" data-target="2100">0</h2>
 <p>حملة</p>
 </div>
 
-<div class="stat">
+<div>
 <h2 class="count" data-target="5">0</h2>
 <p>سنوات</p>
 </div>
@@ -266,8 +278,7 @@ background:rgba(255,255,255,0.05);
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="section">
-<div class="content">
+<section id="services" class="section reveal">
 
 <h2>خدماتنا</h2>
 
@@ -277,40 +288,38 @@ background:rgba(255,255,255,0.05);
 <div class="card">📱 سوشيال ميديا + تيك توك</div>
 <div class="card">🤖 بوتات تيليجرام</div>
 <div class="card">⚙️ تطوير + إدارة</div>
-<div class="card">📈 نمو الحسابات (متابعين + تفاعل)</div>
-<div class="card">🌐 إنشاء مواقع + تصميم احترافي</div>
+<div class="card">📈 نمو الحسابات</div>
+<div class="card">🌐 إنشاء مواقع</div>
 
 </div>
 
-</div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section">
-<div class="content">
+<section id="about" class="section reveal">
 
 <h2>من نحن</h2>
 
-<p>
-نحن شركة التاجر للدعاية نعمل في مجال التسويق الرقمي وإدارة الحملات الإعلانية.
-نساعد المشاريع على النمو وتحقيق نتائج قوية من خلال استراتيجيات تسويقية احترافية.
-نقدم حلول متكاملة تشمل الإعلانات، إدارة السوشيال ميديا، البوتات، وتطوير المواقع.
-</p>
+<div class="content">
+
+شركة التاجر للدعاية هي شركة متخصصة في التسويق الرقمي وإدارة الحملات الإعلانية.
+نساعد المشاريع على النمو من خلال استراتيجيات تسويقية قوية مبنية على تحليل السوق والجمهور المستهدف.
+
+هدفنا هو تحقيق نتائج حقيقية وليس مجرد أرقام، وبناء علامات تجارية قوية تدوم.
 
 </div>
+
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section">
-<div class="content">
+<section id="contact" class="section reveal">
 
 <h2>تواصل معنا</h2>
 
 <a class="btn" href="https://wa.me/201024941083">
-📞 تواصل واتساب
+📞 واتساب مباشر
 </a>
 
-</div>
 </section>
 
 <!-- WHATSAPP -->
@@ -325,45 +334,54 @@ background:rgba(255,255,255,0.05);
 
 <script>
 
-/* typing */
-let text="نحوّل فكرتك إلى عملاء 🔥";
-let i=0;
+/* COUNTER */
+const counters = document.querySelectorAll(".count");
 
-function typing(){
-if(i<text.length){
-document.getElementById("typing").innerHTML+=text.charAt(i);
-i++;
-setTimeout(typing,100);
-}
-}
-typing();
+let started = false;
 
-/* counters */
-const counters=document.querySelectorAll(".count");
+function startCounter(){
+if(started) return;
+started = true;
 
-function runCounters(){
 counters.forEach(counter=>{
-counter.innerText="0";
-
-let target=+counter.getAttribute("data-target");
-let count=0;
-let speed=target/100;
+let target = +counter.getAttribute("data-target");
+let current = 0;
+let speed = target / 80;
 
 function update(){
-count+=speed;
-if(count<target){
-counter.innerText=Math.ceil(count);
+current += speed;
+if(current < target){
+counter.innerText = Math.ceil(current);
 requestAnimationFrame(update);
 }else{
-counter.innerText=target;
+counter.innerText = target;
 }
 }
-
 update();
 });
 }
 
-window.addEventListener("scroll",runCounters);
+/* SCROLL ANIMATION */
+function reveal(){
+document.querySelectorAll(".reveal").forEach(el=>{
+let top = el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add("active");
+}
+});
+}
+
+window.addEventListener("scroll",()=>{
+reveal();
+startCounter();
+});
+
+reveal();
+
+/* REMOVE INTRO AFTER LOAD */
+setTimeout(()=>{
+document.querySelector(".intro").style.display="none";
+},2500);
 
 </script>
 
