@@ -9,39 +9,7 @@
 
 <style>
 
-/* ===== INTRO SCREEN ===== */
-.intro-screen{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100vh;
-background:#070a12;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-animation:fadeOut 2.5s forwards;
-}
-
-.intro-screen h1{
-font-size:55px;
-color:#00ffd5;
-animation:zoomIn 1.2s ease;
-}
-
-@keyframes zoomIn{
-0%{transform:scale(0.3);opacity:0;}
-100%{transform:scale(1);opacity:1;}
-}
-
-@keyframes fadeOut{
-0%{opacity:1;}
-70%{opacity:1;}
-100%{opacity:0;visibility:hidden;}
-}
-
-/* ===== BODY ===== */
+/* ===== GENERAL ===== */
 body{
 margin:0;
 font-family:Arial;
@@ -70,10 +38,6 @@ margin:0 10px;
 text-decoration:none;
 }
 
-nav a:hover{
-color:#00ffd5;
-}
-
 /* ===== HERO ===== */
 .hero{
 height:100vh;
@@ -86,28 +50,24 @@ position:relative;
 overflow:hidden;
 }
 
-/* PARALLAX */
-.parallax{
+.hero::before{
+content:"";
 position:absolute;
-top:0;
-left:0;
 width:100%;
-height:120%;
+height:100%;
 background:url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=1600&q=80');
 background-size:cover;
 background-position:center;
+opacity:0.2;
 z-index:-1;
-transform:translateY(0);
 }
 
-/* LOGO */
 .logo{
 width:140px;
 margin-bottom:15px;
 filter:drop-shadow(0 0 20px #00ffd5);
 }
 
-/* TYPING */
 #typing{
 font-size:40px;
 border-right:3px solid #00ffd5;
@@ -116,7 +76,6 @@ overflow:hidden;
 width:0;
 }
 
-/* INTRO TEXT */
 .intro{
 margin-top:15px;
 max-width:650px;
@@ -124,7 +83,6 @@ line-height:1.8;
 opacity:.9;
 }
 
-/* BUTTON */
 .btn{
 margin-top:20px;
 padding:14px 30px;
@@ -135,10 +93,87 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* ===== BIG SPACING ===== */
+/* ===== SECTION SPACING ===== */
 .section{
-padding:140px 20px;
+padding:160px 20px;
 text-align:center;
+}
+
+/* ===== DIFFERENT BACKGROUNDS ===== */
+#services{
+position:relative;
+}
+
+#services::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+opacity:0.08;
+z-index:0;
+}
+
+#about{
+position:relative;
+}
+
+#about::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+opacity:0.08;
+z-index:0;
+}
+
+#contact{
+position:relative;
+}
+
+#contact::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+opacity:0.08;
+z-index:0;
+}
+
+/* content layer */
+.content{
+position:relative;
+z-index:2;
+}
+
+/* ===== GRID ===== */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.1);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#00ffd5;
 }
 
 /* ===== STATS ===== */
@@ -155,82 +190,7 @@ color:#00ffd5;
 margin:0;
 }
 
-/* ===== SERVICES AI BACKGROUND ===== */
-#services{
-position:relative;
-}
-
-#services::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-opacity:0.07;
-z-index:0;
-}
-
-#services .grid{
-position:relative;
-z-index:2;
-}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:40px;
-}
-
-/* CARD */
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-padding:25px;
-border-radius:15px;
-border:1px solid rgba(255,255,255,0.1);
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-border-color:#00ffd5;
-}
-
-/* ===== ABOUT BACKGROUND ===== */
-#about{
-position:relative;
-}
-
-#about::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-opacity:0.08;
-z-index:0;
-}
-
-#about .content{
-position:relative;
-z-index:2;
-max-width:800px;
-margin:auto;
-line-height:2;
-opacity:.9;
-}
-
-/* WHATSAPP */
+/* ===== WHATSAPP ===== */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -247,15 +207,17 @@ color:#fff;
 text-decoration:none;
 }
 
+/* ===== FOOTER ===== */
+footer{
+text-align:center;
+padding:30px;
+background:rgba(255,255,255,0.05);
+}
+
 </style>
 </head>
 
 <body>
-
-<!-- INTRO -->
-<div class="intro-screen">
-<h1>التاجر للدعاية</h1>
-</div>
 
 <!-- NAV -->
 <nav>
@@ -263,22 +225,20 @@ text-decoration:none;
 <div>
 <a href="#home">الرئيسية</a>
 <a href="#services">الخدمات</a>
-<a href="#stats">الإحصائيات</a>
 <a href="#about">من نحن</a>
+<a href="#contact">تواصل</a>
 </div>
 </nav>
 
 <!-- HERO -->
 <header id="home" class="hero">
 
-<div class="parallax"></div>
-
 <img class="logo" src="https://raw.githubusercontent.com/hnanamr656-prog/Company-website/main/logo.jpeg">
 
 <h1 id="typing"></h1>
 
 <p class="intro">
-شركة التاجر للدعاية هي شركة تسويق رقمي متخصصة في إدارة الإعلانات وبناء العلامات التجارية وتحقيق نتائج حقيقية للمشاريع.
+شركة التاجر للدعاية متخصصة في التسويق الرقمي وإدارة الإعلانات وبناء العلامات التجارية وتحقيق نتائج حقيقية.
 </p>
 
 <a class="btn" href="https://wa.me/201024941083">ابدأ الآن</a>
@@ -286,7 +246,7 @@ text-decoration:none;
 </header>
 
 <!-- STATS -->
-<section id="stats" class="stats">
+<section class="stats section">
 
 <div class="stat">
 <h2 class="count" data-target="1000">0</h2>
@@ -307,34 +267,50 @@ text-decoration:none;
 
 <!-- SERVICES -->
 <section id="services" class="section">
+<div class="content">
 
 <h2>خدماتنا</h2>
 
 <div class="grid">
 
 <div class="card">📢 إعلانات ممولة</div>
+<div class="card">📱 سوشيال ميديا + تيك توك</div>
 <div class="card">🤖 بوتات تيليجرام</div>
-<div class="card">📈 زيادة تفاعل</div>
-<div class="card">🌐 إنشاء مواقع</div>
+<div class="card">⚙️ تطوير + إدارة</div>
+<div class="card">📈 نمو الحسابات (متابعين + تفاعل)</div>
+<div class="card">🌐 إنشاء مواقع + تصميم احترافي</div>
 
 </div>
 
+</div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="section">
+<div class="content">
 
 <h2>من نحن</h2>
 
-<div class="content">
-
+<p>
 نحن شركة التاجر للدعاية نعمل في مجال التسويق الرقمي وإدارة الحملات الإعلانية.
-نساعد الشركات على النمو وتحقيق نتائج قوية من خلال استراتيجيات احترافية.
-
-نهدف إلى بناء علامات تجارية قوية وزيادة المبيعات وتحقيق أفضل عائد على الاستثمار.
+نساعد المشاريع على النمو وتحقيق نتائج قوية من خلال استراتيجيات تسويقية احترافية.
+نقدم حلول متكاملة تشمل الإعلانات، إدارة السوشيال ميديا، البوتات، وتطوير المواقع.
+</p>
 
 </div>
+</section>
 
+<!-- CONTACT -->
+<section id="contact" class="section">
+<div class="content">
+
+<h2>تواصل معنا</h2>
+
+<a class="btn" href="https://wa.me/201024941083">
+📞 تواصل واتساب
+</a>
+
+</div>
 </section>
 
 <!-- WHATSAPP -->
@@ -342,17 +318,14 @@ text-decoration:none;
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
+<!-- FOOTER -->
+<footer>
+© 2026 التاجر للدعاية - جميع الحقوق محفوظة
+</footer>
+
 <script>
 
-/* PARALLAX */
-window.addEventListener("scroll",()=>{
-let p=document.querySelector(".parallax");
-if(p){
-p.style.transform="translateY("+window.scrollY*0.4+"px)";
-}
-});
-
-/* TYPING */
+/* typing */
 let text="نحوّل فكرتك إلى عملاء 🔥";
 let i=0;
 
@@ -365,7 +338,7 @@ setTimeout(typing,100);
 }
 typing();
 
-/* COUNTERS */
+/* counters */
 const counters=document.querySelectorAll(".count");
 
 function runCounters(){
