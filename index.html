@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>التاجر للدعاية</title>
+
+<title>التاجر للدعاية والإعلان</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
 /* ================= GLOBAL ================= */
+
 body{
 margin:0;
 font-family:Arial;
@@ -20,6 +24,7 @@ scroll-behavior:smooth;
 }
 
 /* ================= PARTICLES ================= */
+
 #particles-js{
 position:fixed;
 top:0;
@@ -31,6 +36,7 @@ background:#070a12;
 }
 
 /* ================= LOADER ================= */
+
 .loader-screen{
 position:fixed;
 top:0;
@@ -42,12 +48,15 @@ display:flex;
 justify-content:center;
 align-items:center;
 z-index:9999;
+transition:1s;
 }
+
 .loader-content h1{
 color:#00ffd5;
 font-size:40px;
 margin-bottom:10px;
 }
+
 .loader-ring{
 width:50px;
 height:50px;
@@ -57,9 +66,15 @@ border-radius:50%;
 margin:auto;
 animation:spin 1s linear infinite;
 }
-@keyframes spin{to{transform:rotate(360deg);}}
+
+@keyframes spin{
+to{
+transform:rotate(360deg);
+}
+}
 
 /* ================= NAV ================= */
+
 nav{
 display:flex;
 justify-content:space-between;
@@ -72,7 +87,12 @@ top:0;
 z-index:1000;
 }
 
+nav h1{
+color:#00ffd5;
+}
+
 /* ================= HERO ================= */
+
 .hero{
 height:100vh;
 display:flex;
@@ -82,24 +102,32 @@ align-items:center;
 text-align:center;
 padding:20px;
 }
+
 .hero h2{
-font-size:42px;
+font-size:52px;
 color:#00ffd5;
+margin-bottom:20px;
 }
+
 .hero p{
 max-width:750px;
 line-height:2;
 opacity:.9;
+font-size:18px;
 }
 
-/* ================= SECTIONS ================= */
+.hero .btn{
+margin-top:25px;
+}
+
+/* ================= SECTION ================= */
+
 .section{
-padding:150px 20px;
+padding:130px 20px;
 text-align:center;
 position:relative;
 }
 
-/* Parallax background */
 .section::before{
 content:"";
 position:absolute;
@@ -110,18 +138,20 @@ opacity:.06;
 z-index:-1;
 }
 
-/* backgrounds */
 #services::before{
 background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');
 }
+
 #about::before{
 background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
 }
+
 #order::before{
 background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');
 }
 
-/* ================= COUNTERS ================= */
+/* ================= STATS ================= */
+
 .stats{
 display:flex;
 justify-content:center;
@@ -129,19 +159,39 @@ gap:70px;
 flex-wrap:wrap;
 padding:100px 20px;
 }
+
+.stat{
+background:rgba(255,255,255,.05);
+padding:35px;
+border-radius:20px;
+min-width:220px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.08);
+transition:.4s;
+}
+
+.stat:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 40px rgba(0,255,213,.15);
+border-color:#00ffd5;
+}
+
 .stat h2{
 font-size:60px;
 color:#00ffd5;
 text-shadow:0 0 20px rgba(0,255,213,.4);
+letter-spacing:2px;
+font-weight:bold;
+margin:0;
 }
-.stat.pulse h2{
-animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-50%{transform:scale(1.08);}
+
+.stat p{
+font-size:18px;
+margin-top:10px;
 }
 
 /* ================= SERVICES ================= */
+
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -158,22 +208,77 @@ border:1px solid rgba(255,255,255,.08);
 transition:.35s;
 cursor:pointer;
 }
+
 .card:hover{
 transform:translateY(-10px) rotateX(6deg) rotateY(-6deg);
 border-color:#00ffd5;
 box-shadow:0 20px 40px rgba(0,255,213,.15);
 }
+
 .card i{
 font-size:34px;
 color:#00ffd5;
 margin-bottom:12px;
 transition:.4s;
 }
+
 .card:hover i{
 transform:rotateY(180deg) scale(1.15);
 }
 
+/* ================= POPUP ================= */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:rgba(0,0,0,.7);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
+}
+
+.popup-box{
+background:#0f1725;
+padding:35px;
+border-radius:20px;
+max-width:550px;
+width:100%;
+text-align:right;
+border:1px solid rgba(0,255,213,.2);
+box-shadow:0 20px 50px rgba(0,255,213,.15);
+position:relative;
+overflow:auto;
+max-height:85vh;
+}
+
+.popup-box h2{
+color:#00ffd5;
+margin-bottom:20px;
+text-align:center;
+}
+
+.popup-box p{
+line-height:2;
+font-size:16px;
+white-space:pre-line;
+}
+
+.close-popup{
+position:absolute;
+top:12px;
+left:15px;
+font-size:30px;
+cursor:pointer;
+color:#fff;
+}
+
 /* ================= FORM ================= */
+
 .form{
 max-width:500px;
 margin:auto;
@@ -184,12 +289,13 @@ gap:15px;
 
 .form input,
 .form textarea{
-padding:12px;
-border-radius:10px;
+padding:14px;
+border-radius:12px;
 border:none;
 outline:none;
-background:rgba(255,255,255,0.08);
+background:rgba(255,255,255,.08);
 color:#fff;
+font-size:15px;
 }
 
 .form textarea{
@@ -198,7 +304,7 @@ resize:none;
 }
 
 .btn{
-padding:14px;
+padding:14px 28px;
 border:none;
 border-radius:30px;
 background:linear-gradient(45deg,#00ffd5,#00aaff);
@@ -207,20 +313,62 @@ font-weight:bold;
 color:#000;
 text-decoration:none;
 display:inline-block;
+transition:.4s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 10px 30px rgba(0,255,213,.3);
+}
+
+/* ================= SOCIAL ================= */
+
+.social-links{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.social-links a{
+width:70px;
+height:70px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:#fff;
+text-decoration:none;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+transition:.4s;
+backdrop-filter:blur(10px);
+}
+
+.social-links a:hover{
+transform:translateY(-10px) scale(1.1);
+border-color:#00ffd5;
+box-shadow:0 15px 35px rgba(0,255,213,.25);
+color:#00ffd5;
 }
 
 /* ================= REVEAL ================= */
+
 .reveal{
 opacity:0;
 transform:translateY(60px);
 transition:1s;
 }
+
 .reveal.active{
 opacity:1;
 transform:translateY(0);
 }
 
 /* ================= WHATSAPP ================= */
+
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -235,16 +383,36 @@ align-items:center;
 font-size:28px;
 color:#fff;
 z-index:999;
+text-decoration:none;
 }
 
 /* ================= FOOTER ================= */
+
 footer{
 text-align:center;
 padding:25px;
 background:rgba(255,255,255,.04);
+margin-top:50px;
+}
+
+@media(max-width:768px){
+
+.hero h2{
+font-size:38px;
+}
+
+.stats{
+gap:25px;
+}
+
+.stat{
+width:100%;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -252,159 +420,396 @@ background:rgba(255,255,255,.04);
 <div id="particles-js"></div>
 
 <!-- LOADER -->
+
 <div class="loader-screen">
+
 <div class="loader-content">
+
 <h1>التاجر للدعاية</h1>
+
 <div class="loader-ring"></div>
-</div>
+
 </div>
 
+</div>
+
+<!-- NAV -->
+
 <nav>
+
 <h1>التاجر للدعاية</h1>
+
 </nav>
 
 <!-- HERO -->
+
 <header class="hero">
-<h2>شركة دعاية وإعلان احترافية</h2>
-<p>نقدم حلول إبداعية في الدعاية والإعلان وبناء الهوية التجارية بشكل احترافي.</p>
+
+<h2> شركة التاجر للدعاية والإعلانات الإحترافية</h2>
+
+<p>
+نقدم حلول إبداعية في التسويق الإلكتروني وإدارة الحملات الإعلانية
+وصناعة الهوية التجارية بشكل احترافي يساعد الشركات على النمو والانتشار.
+</p>
+
+<a href="https://wa.me/201024941083" class="btn">
+ابدأ مشروعك الآن
+</a>
+
 </header>
 
 <!-- STATS -->
+
 <section class="stats reveal">
-<div class="stat"><h2 class="count" data-target="1000">0</h2><p>عميل</p></div>
-<div class="stat"><h2 class="count" data-target="2100">0</h2><p>حملة</p></div>
-<div class="stat"><h2 class="count" data-target="5">0</h2><p>سنوات</p></div>
+
+<div class="stat">
+<h2 class="count" data-target="16325">0</h2>
+<p>عميل</p>
+</div>
+
+<div class="stat">
+<h2 class="count" data-target="42896">0</h2>
+<p>حملة إعلانية</p>
+</div>
+
+<div class="stat">
+<h2 class="count" data-target="113990">0</h2>
+<p>زيارة</p>
+</div>
+
 </section>
 
 <!-- SERVICES -->
+
 <section id="services" class="section reveal">
+
 <h2>خدماتنا</h2>
 
 <div class="grid">
-<div class="card"><i class="fas fa-bullhorn"></i><h3>إعلانات ممولة</h3></div>
-<div class="card"><i class="fas fa-mobile-screen"></i><h3>سوشيال ميديا</h3></div>
-<div class="card"><i class="fab fa-telegram"></i><h3>بوتات تيليجرام</h3></div>
-<div class="card"><i class="fas fa-gears"></i><h3>إدارة</h3></div>
-<div class="card"><i class="fas fa-chart-line"></i><h3>نمو الحسابات</h3></div>
-<div class="card"><i class="fas fa-laptop-code"></i><h3>إنشاء مواقع</h3></div>
+
+<!-- ADS -->
+
+<div class="card" onclick="openService(
+'الإعلانات الممولة',
+'نقدم حملات إعلانية ممولة بأحترافية على جميع منصات السوشيال ميديا مثل تيليجرام وفيسبوك وإنستجرام وتيك توك وواتساب وسناب شات وجوجل ويوتيوب مع استهداف دقيق للعملاء وتحليل النتائج لتحقيق أفضل وصول ومبيعات.'
+)">
+<i class="fas fa-bullhorn"></i>
+<h3>إعلانات ممولة</h3>
 </div>
+
+<!-- SOCIAL MEDIA -->
+
+<div class="card" onclick="openService(
+'إدارة السوشيال ميديا',
+'نقوم بإدارة صفحات السوشيال ميديا بشكل احترافي مع زيادة التفاعل والمتابعين وإنشاء محتوى جذاب يساعد على نمو نشاطك التجاري.'
+)">
+<i class="fas fa-mobile-screen"></i>
+<h3>إدارة السوشيال ميديا</h3>
+</div>
+<div class="card" onclick="openService('خدمات تيليجرام 🚀','✅ إنشاء بوتات تيليجرام احترافية\n✅ تصميم بوتات طلبات ورد تلقائي\n✅ بوتات حجز واستقبال العملاء\n✅ إدارة قنوات وجروبات تيليجرام\n✅ زيادة أعضاء القنوات والجروبات\n✅ نشر تلقائي داخل القنوات\n✅ ربط البوتات بالمواقع والمتاجر\n✅ بوتات خدمات العملاء والدعم الفني\n✅ حماية وإدارة الجروبات\n✅ إعداد قنوات احترافية للنشاط التجاري\n✅ حملات إعلانية لقنوات تيليجرام\n✅ تصميم واجهات وأزرار للبوتات\n✅ خدمات تطوير وتعديل البوتات\n✅ ربط الدفع والطلبات داخل البوت\n✅ زيادة التفاعل والمشاهدات للقنوات')">
+<i class="fab fa-telegram"></i>
+<h3>خدمات تيليجرام</h3>
+</div>
+
+<!-- MANAGEMENT -->
+
+<div class="card" onclick="openService(
+'إدارة الصفحات',
+'نوفر إدارة كاملة للصفحات والمتاجر الإلكترونية مع متابعة الرسائل والتعليقات وتحسين ظهور النشاط التجاري.'
+)">
+<i class="fas fa-gears"></i>
+<h3>إدارة الصفحات</h3>
+</div>
+
+<!-- GROWTH -->
+
+<div class="card" onclick="openService(
+'نمو الحسابات',
+'نساعدك على زيادة نمو حساباتك وتحسين الوصول والتفاعل بطريقة احترافية وآمنة.'
+)">
+<i class="fas fa-chart-line"></i>
+<h3>نمو الحسابات</h3>
+</div>
+
+<!-- WEBSITES -->
+
+<div class="card" onclick="openService(
+'تصميم وإنشاء المواقع',
+'نصمم مواقع إلكترونية احترافية سريعة ومتجاوبة مع جميع الأجهزة تساعدك على عرض خدماتك بشكل مميز.'
+)">
+<i class="fas fa-laptop-code"></i>
+<h3>تصميم وإنشاء المواقع</h3>
+</div>
+
+</div>
+
 </section>
+
+<!-- POPUP -->
+
+<div id="servicePopup" class="popup">
+
+<div class="popup-box">
+
+<span class="close-popup" onclick="closeService()">&times;</span>
+
+<h2 id="popupTitle"></h2>
+
+<p id="popupText"></p>
+
+</div>
+
+</div>
 
 <!-- ABOUT -->
+
 <section id="about" class="section reveal">
+
 <h2>من نحن</h2>
-<p style="max-width:800px;margin:auto;line-height:2;">
-شركة التاجر للدعاية متخصصة في تنفيذ الحملات الإعلانية وصناعة الهوية البصرية
-بشكل احترافي يساعد الشركات على النمو والانتشار.
+
+<p style="max-width:800px;margin:auto;line-height:2;font-size:18px;">
+
+شركة التاجر للدعاية والإعلان متخصصة في تنفيذ الحملات الإعلانية
+وصناعة الهوية البصرية وإدارة السوشيال ميديا بشكل احترافي يساعد
+الشركات والمتاجر على النمو وتحقيق أفضل النتائج.
+
 </p>
+
 </section>
 
-<!-- ORDER FORM -->
+<!-- ORDER -->
+
 <section id="order" class="section reveal">
+
 <h2>اطلب خدمتك الآن</h2>
 
 <form class="form" onsubmit="sendToWhatsApp(event)">
 
 <input type="text" id="name" placeholder="الاسم" required>
+
 <input type="text" id="service" placeholder="الخدمة المطلوبة" required>
+
 <input type="text" id="phone" placeholder="رقم الهاتف" required>
+
 <textarea id="details" placeholder="تفاصيل إضافية"></textarea>
 
-<button class="btn" type="submit">إرسال الطلب</button>
+<button class="btn" type="submit">
+إرسال الطلب
+</button>
 
 </form>
+
+</section>
+
+<!-- SOCIAL MEDIA -->
+
+<section class="section reveal">
+
+<h2>تابعنا على منصاتنا</h2>
+
+<div class="social-links">
+
+<a href="https://t.me/+5TSlpPP48CFhMzg8" target="_blank">
+<i class="fab fa-telegram"></i>
+</a>
+
+<a href="https://www.facebook.com/share/1FaM3PKKp3/" target="_blank">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://www.instagram.com/el_tager_1?igsh=dDRxd2hpbnplYzNo" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.tiktok.com/@el_tageer1?_r=1&_t=ZS-96llZ93oZiX" target="_blank">
+<i class="fab fa-tiktok"></i>
+</a>
+
+<a href="https://whatsapp.com/channel/0029VantOMtAInPff6vNpo1z" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+
 </section>
 
 <!-- CONTACT -->
+
 <section class="section reveal">
+
 <h2>تواصل معنا</h2>
-<a class="btn" href="https://wa.me/201024941083">واتساب مباشر</a>
+
+<a class="btn" href="https://wa.me/201024941083">
+واتساب مباشر
+</a>
+
 </section>
 
 <!-- WHATSAPP -->
+
 <a class="whatsapp" href="https://wa.me/201024941083">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
+<!-- FOOTER -->
+
 <footer>
-© 2026 التاجر للدعاية
+© 2026 التاجر للدعاية والإعلان
 </footer>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
 
-/* particles */
 particlesJS("particles-js",{
 particles:{
 number:{value:50},
 size:{value:3},
 move:{speed:1.2},
-line_linked:{enable:true,distance:140}
+line_linked:{
+enable:true,
+distance:140
+}
 }
 });
 
-/* loader */
 window.addEventListener("load",()=>{
+
 setTimeout(()=>{
+
 document.querySelector(".loader-screen").style.opacity="0";
+
 setTimeout(()=>{
 document.querySelector(".loader-screen").style.display="none";
 },1000);
+
 },2200);
+
 });
 
-/* reveal */
 function reveal(){
+
 document.querySelectorAll(".reveal").forEach(el=>{
+
 if(el.getBoundingClientRect().top < window.innerHeight-100){
+
 el.classList.add("active");
+
 }
+
 });
+
 }
+
 window.addEventListener("scroll",reveal);
 
-/* counters */
+reveal();
+
 let started=false;
+
 function counter(){
+
 if(started) return;
+
 let sec=document.querySelector(".stats");
+
 if(sec.getBoundingClientRect().top < window.innerHeight-100){
+
 started=true;
+
 document.querySelectorAll(".count").forEach(c=>{
+
 let t=+c.dataset.target;
+
 let cur=0;
+
 let inc=t/100;
+
 function up(){
+
 cur+=inc;
+
 if(cur<t){
-c.innerText=Math.ceil(cur)+"+";
+
+c.innerText=Math.ceil(cur).toLocaleString()+"+";
+
 requestAnimationFrame(up);
+
 }else{
-c.innerText=t+"+";
+
+c.innerText=t.toLocaleString()+"+";
+
 }
+
 }
+
 up();
+
 });
+
 }
+
 }
+
 window.addEventListener("scroll",counter);
 
-/* FORM -> WHATSAPP */
+counter();
+
+function openService(title,text){
+
+document.getElementById("popupTitle").innerText=title;
+
+document.getElementById("popupText").innerText=text;
+
+document.getElementById("servicePopup").style.display="flex";
+
+}
+
+function closeService(){
+
+document.getElementById("servicePopup").style.display="none";
+
+}
+
+window.addEventListener("click",(e)=>{
+
+let popup=document.getElementById("servicePopup");
+
+if(e.target===popup){
+
+popup.style.display="none";
+
+}
+
+});
+
 function sendToWhatsApp(e){
+
 e.preventDefault();
 
 let name=document.getElementById("name").value;
+
 let service=document.getElementById("service").value;
+
 let phone=document.getElementById("phone").value;
+
 let details=document.getElementById("details").value;
 
-let msg=`طلب خدمة:%0Aالاسم: ${name}%0Aالخدمة: ${service}%0Aرقم: ${phone}%0Aتفاصيل: ${details}`;
+let msg=`طلب خدمة:
+الاسم: ${name}
+الخدمة: ${service}
+رقم الهاتف: ${phone}
+تفاصيل: ${details}`;
 
-window.open("https://wa.me/201024941083?text="+msg,"_blank");
+window.open(
+"https://wa.me/201024941083?text="+encodeURIComponent(msg),
+"_blank"
+);
+
 }
 
 </script>
 
 </body>
+
 </html>
