@@ -818,8 +818,6 @@ window.open(
 );
 
 }
-
-</script>
 <!-- POPUP -->
 <div id="servicePopup" class="popup">
   <div class="popup-box">
@@ -832,6 +830,27 @@ window.open(
 
   </div>
 </div>
-</body>
 
+<!-- SCRIPT -->
+<script>
+function openService(title, text, img) {
+  document.getElementById("popupTitle").innerText = title;
+  document.getElementById("popupText").innerText = text;
+  document.getElementById("popupImg").src = img;
+  document.getElementById("servicePopup").style.display = "flex";
+}
+
+function closeService() {
+  document.getElementById("servicePopup").style.display = "none";
+}
+
+window.addEventListener("click", function (e) {
+  let popup = document.getElementById("servicePopup");
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+});
+</script>
+
+</body>
 </html>
