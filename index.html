@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* ================= SPLASH SCREEN (شاشة الترحيب) ================= */
+        /* ================= SPLASH SCREEN (شاشة الترحيب المضيئة) ================= */
         #splash-screen {
             position: fixed;
             top: 0;
@@ -34,8 +34,8 @@
             margin: 0;
             font-weight: bold;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(0, 255, 213, 0.5),
-                         0 0 20px rgba(0, 255, 213, 0.3),
+            text-shadow: 0 0 10px rgba(0, 255, 213, 0.6),
+                         0 0 20px rgba(0, 255, 213, 0.4),
                          0 0 40px rgba(0, 255, 213, 0.2);
         }
 
@@ -96,12 +96,14 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 213, 0.1);
         }
 
         nav h1 {
             color: #00ffd5;
             margin: 0;
             font-size: 24px;
+            text-shadow: 0 0 10px rgba(0, 255, 213, 0.3);
         }
 
         /* ================= HERO ================= */
@@ -120,6 +122,7 @@
             font-size: 52px;
             color: #00ffd5;
             margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(0, 255, 213, 0.4);
         }
 
         .hero p {
@@ -127,6 +130,7 @@
             line-height: 2;
             opacity: .9;
             font-size: 18px;
+            color: #e0e0e0;
         }
 
         .hero .btn {
@@ -176,7 +180,7 @@
             inset: 0;
             background-size: cover;
             background-position: center;
-            opacity: .06;
+            opacity: .04;
             z-index: -1;
         }
 
@@ -201,7 +205,7 @@
         }
 
         .stat {
-            background: rgba(255, 255, 255, .05);
+            background: rgba(255, 255, 255, .04);
             padding: 35px;
             border-radius: 20px;
             min-width: 220px;
@@ -247,7 +251,7 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, .05);
+            background: rgba(255, 255, 255, .04);
             padding: 35px 25px;
             border-radius: 18px;
             backdrop-filter: blur(10px);
@@ -455,11 +459,12 @@
             padding: 25px;
             background: rgba(255, 255, 255, .04);
             margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, .05);
         }
 
         @media(max-width:768px) {
             .hero h2 {
-                font-size: 38px;
+                font-size: 34px;
             }
 
             .section-title {
@@ -614,6 +619,4 @@
         <div class="social-links">
             <a href="https://t.me/+5TSlpPP48CFhMzg8" target="_blank"><i class="fab fa-telegram"></i></a>
             <a href="https://www.facebook.com/share/1FaM3PKKp3/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/el_tager_1?igsh=dDRxd2hpbnplYzNo" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@el_tageer1?_r=1&_t=ZS-96llZ93oZiX" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wh
+            <a href="h
