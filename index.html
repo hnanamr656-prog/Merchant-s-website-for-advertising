@@ -643,9 +643,7 @@ width:100%;
 </div>
 
 </section>
-
 <!-- CONTACT -->
-
 <section class="section reveal">
 
 <h2>تواصل معنا</h2>
@@ -657,17 +655,30 @@ width:100%;
 </section>
 
 <!-- WHATSAPP -->
-
 <a class="whatsapp" href="https://wa.me/201024941083">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <!-- FOOTER -->
-
 <footer>
 © 2026 التاجر للدعاية والإعلان
 </footer>
 
+<!-- ================= POPUP ================= -->
+<div id="servicePopup" class="popup">
+  <div class="popup-box">
+
+    <span class="close-popup" onclick="closeService()">×</span>
+
+    <img id="popupImg" style="width:100%;border-radius:10px;margin-bottom:10px;">
+
+    <h2 id="popupTitle"></h2>
+    <p id="popupText"></p>
+
+  </div>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
@@ -684,126 +695,81 @@ distance:140
 }
 });
 
+// Loader
 window.addEventListener("load",()=>{
-
 setTimeout(()=>{
-
 document.querySelector(".loader-screen").style.opacity="0";
-
 setTimeout(()=>{
 document.querySelector(".loader-screen").style.display="none";
 },1000);
-
 },2200);
-
 });
 
+// Scroll reveal
 function reveal(){
-
 document.querySelectorAll(".reveal").forEach(el=>{
-
 if(el.getBoundingClientRect().top < window.innerHeight-100){
-
 el.classList.add("active");
-
 }
-
 });
-
 }
-
 window.addEventListener("scroll",reveal);
-
 reveal();
 
+// Counter
 let started=false;
-
 function counter(){
-
 if(started) return;
-
 let sec=document.querySelector(".stats");
-
-if(sec.getBoundingClientRect().top < window.innerHeight-100){
-
+if(sec && sec.getBoundingClientRect().top < window.innerHeight-100){
 started=true;
-
 document.querySelectorAll(".count").forEach(c=>{
-
 let t=+c.dataset.target;
-
 let cur=0;
-
 let inc=t/100;
 
 function up(){
-
 cur+=inc;
-
 if(cur<t){
-
 c.innerText=Math.ceil(cur).toLocaleString()+"+";
-
 requestAnimationFrame(up);
-
 }else{
-
 c.innerText=t.toLocaleString()+"+";
-
 }
-
 }
-
 up();
-
 });
-
 }
-
 }
-
 window.addEventListener("scroll",counter);
-
 counter();
 
-function openService(title,text){
-
-document.getElementById("popupTitle").innerText=title;
-
-document.getElementById("popupText").innerText=text;
-
-document.getElementById("servicePopup").style.display="flex";
-
+// ================= POPUP FUNCTIONS =================
+function openService(title,text,img){
+document.getElementById("popupTitle").innerText = title;
+document.getElementById("popupText").innerText = text;
+document.getElementById("popupImg").src = img;
+document.getElementById("servicePopup").style.display = "flex";
 }
 
 function closeService(){
-
-document.getElementById("servicePopup").style.display="none";
-
+document.getElementById("servicePopup").style.display = "none";
 }
 
 window.addEventListener("click",(e)=>{
-
 let popup=document.getElementById("servicePopup");
-
 if(e.target===popup){
-
 popup.style.display="none";
-
 }
-
 });
 
+// WhatsApp form
 function sendToWhatsApp(e){
-
 e.preventDefault();
 
 let name=document.getElementById("name").value;
-
 let service=document.getElementById("service").value;
-
 let phone=document.getElementById("phone").value;
-
 let details=document.getElementById("details").value;
 
 let msg=`طلب خدمة:
@@ -816,39 +782,8 @@ window.open(
 "https://wa.me/201024941083?text="+encodeURIComponent(msg),
 "_blank"
 );
-<!-- POPUP -->
-<div id="servicePopup" class="popup">
-  <div class="popup-box">
-
-    <span class="close-popup" onclick="closeService()">×</span>
-
-    <img id="popupImg" style="width:100%;border-radius:10px;margin-bottom:10px;">
-
-    <h2 id="popupTitle"></h2>
-    <p id="popupText"></p>
-
-  </div>
-</div>
-
-<!-- SCRIPT -->
-<script>
-function openService(title, text, img) {
-  document.getElementById("popupTitle").innerText = title;
-  document.getElementById("popupText").innerText = text;
-  document.getElementById("popupImg").src = img;
-  document.getElementById("servicePopup").style.display = "flex";
 }
 
-function closeService() {
-  document.getElementById("servicePopup").style.display = "none";
-}
-
-window.addEventListener("click", function (e) {
-  let popup = document.getElementById("servicePopup");
-  if (e.target === popup) {
-    popup.style.display = "none";
-  }
-});
 </script>
 
 </body>
