@@ -8,6 +8,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
+        /* ================= SPLASH SCREEN (شاشة الترحيب) ================= */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #070a12;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        .splash-content {
+            text-align: center;
+            animation: splashFadeUp 1.2s ease-out forwards;
+        }
+
+        .splash-content h1 {
+            font-size: 45px;
+            color: #00ffd5;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 255, 213, 0.5),
+                         0 0 20px rgba(0, 255, 213, 0.3),
+                         0 0 40px rgba(0, 255, 213, 0.2);
+        }
+
+        .splash-content p {
+            color: #00aaff;
+            font-size: 18px;
+            margin-top: 15px;
+            opacity: 0.8;
+            letter-spacing: 3px;
+        }
+
+        @keyframes splashFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* كلاس لإخفاء الشاشة بعد انتهاء الوقت */
+        #splash-screen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
         /* ================= GLOBAL ================= */
         body {
             margin: 0;
@@ -57,6 +113,7 @@
             align-items: center;
             text-align: center;
             padding: 20px;
+            animation: fadeInUp 1.2s ease-out forwards;
         }
 
         .hero h2 {
@@ -76,11 +133,41 @@
             margin-top: 25px;
         }
 
-        /* ================= SECTION ================= */
-        .section {
-            padding: 130px 20px;
+        /* ================= SECTION TITLES WITH ICONS ================= */
+        .section-title {
+            font-size: 36px;
+            color: #00ffd5;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            font-size: 40px;
+            animation: bounceIcon 2s infinite alternate;
+            color: #00aaff;
+        }
+
+        @keyframes bounceIcon {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-8px); }
+        }
+
+        /* ================= SECTION & REVEAL EFFECT ================= */
+        .section, .stats {
+            padding: 100px 20px;
             text-align: center;
             position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section.visible, .stats.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section::before {
@@ -111,7 +198,6 @@
             justify-content: center;
             gap: 70px;
             flex-wrap: wrap;
-            padding: 100px 20px;
         }
 
         .stat {
@@ -152,12 +238,12 @@
             margin-bottom: 0;
         }
 
-        /* ================= SERVICES ================= */
+        /* ================= SERVICES GRID ================= */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            padding: 40px 20px;
+            padding: 20px 20px;
         }
 
         .card {
@@ -230,7 +316,7 @@
         }
 
         .popup-box p {
-            line-height: 2;
+            line-height: 24px;
             font-size: 16px;
             white-space: pre-line;
             margin: 0;
@@ -301,7 +387,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         .social-links a {
@@ -325,6 +411,18 @@
             border-color: #00ffd5;
             box-shadow: 0 15px 35px rgba(0, 255, 213, .25);
             color: #00ffd5;
+        }
+
+        /* ================= ANIMATIONS ================= */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ================= WHATSAPP ================= */
@@ -364,6 +462,10 @@
                 font-size: 38px;
             }
 
+            .section-title {
+                font-size: 28px;
+            }
+
             .stats {
                 gap: 25px;
             }
@@ -371,11 +473,22 @@
             .stat {
                 width: 100%;
             }
+
+            .splash-content h1 {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
 
 <body>
+
+    <div id="splash-screen">
+        <div class="splash-content">
+            <h1>التاجر للدعاية والإعلان</h1>
+            <p>مرحباً بك في عالم الإبداع</p>
+        </div>
+    </div>
 
     <div id="particles-js"></div>
 
@@ -419,7 +532,7 @@
     </section>
 
     <section id="services" class="section">
-        <h2>خدماتنا</h2>
+        <h2 class="section-title"><i class="fas fa-rocket"></i> خدماتنا الإبداعية</h2>
         <div class="grid">
             <div class="card" onclick="openService('الإعلانات الممولة','نقدم حملات إعلانية ممولة باحترافية على جميع منصات السوشيال ميديا مثل تيليجرام وفيسبوك وإنستجرام وتيك توك وواتساب وسناب شات وجوجل ويوتيوب مع استهداف دقيق للعملاء وتحليل النتائج لتحقيق أفضل وصول ومبيعات.')">
                 <i class="fas fa-bullhorn"></i>
@@ -456,8 +569,8 @@
                 <h3>تزويد المتابعين</h3>
             </div>
 
-            <div class="card" onclick="openService('خدمات متنوعة','تصميم الشعارات والهوية البصرية، تصميم البوستات، مونتاج الفيديوهات، كتابة المحتوى الإعلاني، إنشاء المتاجر الإلكترونية، والاستشارات التسويقية.')">
-                <i class="fas fa-rocket"></i>
+            <div class="card" onclick="openService('خدمات متنوعة','🎰 إنشاء تطبيق ( ابليكشن )\n💯 بيع قنوات تلجرام وصفحات فيس وانستا وتيك توك وواتس اب جاهزة\n🎮 شحن العاب\n🖼️ تصميم ديزاين ولوجو وايموشن جيرافيك وهوية بصرية كاملة\n📰 إعلانات في جرائد وصحف معروفة\n🕺 تعليقات المشاهير من حساباتهم الرسمية\n⌨️ اشتراكات الذكاء الاصطناعي\n🖥️ اشتراكات شاهد ونتفلكس وواتش ايت\n🎨 اشتراكات كنفا\n🔍 سحب بيانات كاملة لأي شخص من خلال رقم هاتفه ( لأستخدامات قانونية فقط )\n📵 حظر وإغلاق صفحة او حساب أو قناة على [ تليجرام - فيس بوك - انستجرام - تيك توك - واتس اب - يوت يوب - تويتر ]\n📺 اشتراكات جاكو - شوبي - كيك IPTV\n🌐 زيارات للموقع\n📝 مشاهدات للمقالات\n📍 تقييم خرائط جوجل')">
+                <i class="fas fa-cubes"></i>
                 <h3>خدمات متنوعة</h3>
             </div>
 
@@ -477,7 +590,7 @@
     </div>
 
     <section id="about" class="section">
-        <h2>من نحن</h2>
+        <h2 class="section-title"><i class="fas fa-circle-question"></i> من نحن؟</h2>
         <p style="max-width:800px;margin:auto;line-height:2;font-size:18px;">
             شركة التاجر للدعاية والإعلان متخصصة في تنفيذ الحملات الإعلانية
             وصناعة الهوية البصرية وإدارة السوشيال ميديا بشكل احترافي يساعد
@@ -486,7 +599,7 @@
     </section>
 
     <section id="order" class="section">
-        <h2>اطلب خدمتك الآن</h2>
+        <h2 class="section-title"><i class="fas fa-pen-to-square"></i> اطلب خدمتك الآن</h2>
         <form class="form" onsubmit="sendToWhatsApp(event)">
             <input type="text" id="name" placeholder="الاسم" required>
             <input type="text" id="service" placeholder="الخدمة المطلوبة" required>
@@ -497,103 +610,10 @@
     </section>
 
     <section class="section">
-        <h2>تابعنا على منصاتنا</h2>
+        <h2 class="section-title"><i class="fas fa-share-nodes"></i> تابعنا على منصاتنا</h2>
         <div class="social-links">
             <a href="https://t.me/+5TSlpPP48CFhMzg8" target="_blank"><i class="fab fa-telegram"></i></a>
             <a href="https://www.facebook.com/share/1FaM3PKKp3/" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/el_tager_1?igsh=dDRxd2hpbnplYzNo" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@el_tageer1?_r=1&_t=ZS-96llZ93oZiX" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://whatsapp.com/channel/0029VantOMtAInPff6vNpo1z" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>تواصل معنا</h2>
-        <a class="btn" href="https://wa.me/201024941083">واتساب مباشر</a>
-    </section>
-
-    <a class="whatsapp" href="https://wa.me/201024941083" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <footer>
-        © 2026 التاجر للدعاية والإعلان
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // جزيئات الخلفية
-        try {
-            particlesJS("particles-js", {
-                particles: {
-                    number: { value: 50 },
-                    size: { value: 3 },
-                    move: { speed: 1.2 },
-                    line_linked: {
-                        enable: true,
-                        distance: 140
-                    }
-                }
-            });
-        } catch(e) { console.log("Particles library load skipped."); }
-
-        // العداد الرقمي للإحصائيات يشتغل مباشرة عند التمرير
-        let started = false;
-        function counter() {
-            if (started) return;
-            let sec = document.querySelector(".stats");
-            if (sec && sec.getBoundingClientRect().top < window.innerHeight - 50) {
-                started = true;
-                document.querySelectorAll(".count").forEach(c => {
-                    let t = +c.dataset.target;
-                    let cur = 0;
-                    let inc = t / 100;
-                    function up() {
-                        cur += inc;
-                        if (cur < t) {
-                            c.innerText = Math.ceil(cur).toLocaleString() + "+";
-                            requestAnimationFrame(up);
-                        } else {
-                            c.innerText = t.toLocaleString() + "+";
-                        }
-                    }
-                    up();
-                });
-            }
-        }
-        window.addEventListener("scroll", counter);
-        counter();
-
-        // التحكم في فتح وإغلاق كروت الخدمات
-        function openService(title, text) {
-            document.getElementById("popupTitle").innerText = title;
-            document.getElementById("popupText").innerText = text;
-            document.getElementById("servicePopup").style.display = "flex";
-        }
-
-        function closeService() {
-            document.getElementById("servicePopup").style.display = "none";
-        }
-
-        window.addEventListener("click", (e) => {
-            let popup = document.getElementById("servicePopup");
-            if (e.target === popup) {
-                popup.style.display = "none";
-            }
-        });
-
-        // إرسال البيانات للواتساب مباشرة
-        function sendToWhatsApp(e) {
-            e.preventDefault();
-            let name = document.getElementById("name").value;
-            let service = document.getElementById("service").value;
-            let phone = document.getElementById("phone").value;
-            let details = document.getElementById("details").value;
-
-            let msg = `طلب خدمة:\nالاسم: ${name}\nالخدمة: ${service}\nرقم الهاتف: ${phone}\nتفاصيل: ${details}`;
-            window.open("https://wa.me/201024941083?text=" + encodeURIComponent(msg), "_blank");
-        }
-    </script>
-</body>
-
-</html>
+            <a href="https://wh
