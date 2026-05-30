@@ -29,41 +29,6 @@
             background: #070a12;
         }
 
-        /* ================= LOADER ================= */
-        .loader-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: #070a12;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: 1s;
-        }
-
-        .loader-content h1 {
-            color: #00ffd5;
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .loader-ring {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255, 255, 255, .1);
-            border-top: 4px solid #00ffd5;
-            border-radius: 50%;
-            margin: auto;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
         /* ================= NAV ================= */
         nav {
             display: flex;
@@ -426,13 +391,6 @@
 
     <div id="particles-js"></div>
 
-    <div class="loader-screen">
-        <div class="loader-content">
-            <h1>التاجر للدعاية</h1>
-            <div class="loader-ring"></div>
-        </div>
-    </div>
-
     <nav>
         <h1>التاجر للدعاية</h1>
     </nav>
@@ -589,26 +547,7 @@
                     }
                 }
             });
-        } catch(e) { console.log("Particles error ignored to prevent freezing."); }
-
-        // التعديل السحري: إخفاء شاشة التحميل إجبارياً بعد ثانيتين ونصف كحد أقصى لحل مشكلة التعليق
-        window.addEventListener("load", () => {
-            hideLoader();
-        });
-
-        setTimeout(() => {
-            hideLoader();
-        }, 2500);
-
-        function hideLoader() {
-            let loader = document.querySelector(".loader-screen");
-            if (loader && loader.style.display !== "none") {
-                loader.style.opacity = "0";
-                setTimeout(() => {
-                    loader.style.display = "none";
-                }, 1000);
-            }
-        }
+        } catch(e) { console.log("Particles library load skipped."); }
 
         // تأثيرات ظهور العناصر عند التمرير
         function reveal() {
@@ -628,4 +567,48 @@
             let sec = document.querySelector(".stats");
             if (sec && sec.getBoundingClientRect().top < window.innerHeight - 100) {
                 started = true;
-                document.querySelectorAll(".c
+                document.querySelectorAll(".count").forEach(c => {
+                    let t = +c.dataset.target;
+                    let cur = 0;
+                    let inc = t / 100;
+                    function up() {
+                        cur += inc;
+                        if (cur < t) {
+                            c.innerText = Math.ceil(cur).toLocaleString() + "+";
+                            requestAnimationFrame(up);
+                        } else {
+                            c.innerText = t.toLocaleString() + "+";
+                        }
+                    }
+                    up();
+                });
+            }
+        }
+        window.addEventListener("scroll", counter);
+        counter();
+
+        // التحكم في فتح وإغلاق كروت الخدمات
+        function openService(title, text) {
+            document.getElementById("popupTitle").innerText = title;
+            document.getElementById("popupText").innerText = text;
+            document.getElementById("servicePopup").style.display = "flex";
+        }
+
+        function closeService() {
+            document.getElementById("servicePopup").style.display = "none";
+        }
+
+        window.addEventListener("click", (e) => {
+            let popup = document.getElementById("servicePopup");
+            if (e.target === popup) {
+                popup.style.display = "none";
+            }
+        });
+
+        // إرسال البيانات للواتساب مباشرة
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            let name = document.getElementById("name").value;
+            let service = document.getElementById("service").value;
+            let phone = document.getElementById("phone").value;
+            let details = document.getElementBy
