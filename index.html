@@ -155,7 +155,7 @@ background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f1
 .stats{
 display:flex;
 justify-content:center;
-gap:70px;
+gap:40px;
 flex-wrap:wrap;
 padding:100px 20px;
 }
@@ -164,7 +164,7 @@ padding:100px 20px;
 background:rgba(255,255,255,.05);
 padding:35px;
 border-radius:20px;
-min-width:220px;
+min-width:200px;
 backdrop-filter:blur(10px);
 border:1px solid rgba(255,255,255,.08);
 transition:.4s;
@@ -262,6 +262,15 @@ margin-bottom:20px;
 text-align:center;
 }
 
+.popup-img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+margin-bottom:20px;
+border:1px solid rgba(255,255,255,.1);
+}
+
 .popup-box p{
 line-height:2;
 font-size:16px;
@@ -275,6 +284,7 @@ left:15px;
 font-size:30px;
 cursor:pointer;
 color:#fff;
+z-index:10;
 }
 
 /* ================= FORM ================= */
@@ -419,6 +429,8 @@ width:100%;
 
 <div id="particles-js"></div>
 
+<!-- LOADER -->
+
 <div class="loader-screen">
 
 <div class="loader-content">
@@ -431,11 +443,15 @@ width:100%;
 
 </div>
 
+<!-- NAV -->
+
 <nav>
 
 <h1>التاجر للدعاية</h1>
 
 </nav>
+
+<!-- HERO -->
 
 <header class="hero">
 
@@ -452,7 +468,14 @@ width:100%;
 
 </header>
 
+<!-- STATS -->
+
 <section class="stats reveal">
+
+<div class="stat">
+<h2 class="count" data-target="10">0</h2>
+<p>سنوات خبرة</p>
+</div>
 
 <div class="stat">
 <h2 class="count" data-target="16325">0</h2>
@@ -471,68 +494,93 @@ width:100%;
 
 </section>
 
+<!-- SERVICES -->
+
 <section id="services" class="section reveal">
 
 <h2>خدماتنا</h2>
 
 <div class="grid">
 
+<!-- ADS -->
+
 <div class="card" onclick="openService(
 'الإعلانات الممولة',
-'نقدم حملات إعلانية ممولة بأحترافية على جميع منصات السوشيال ميديا مثل تيليجرام وفيسبوك وإنستجرام وتيك توك وواتساب وسناب شات وجوجل ويوتيوب مع استهداف دقيق للعملاء وتحليل النتائج لتحقيق أفضل وصول ومبيعات.'
+'نقدم حملات إعلانية ممولة بأحترافية على جميع منصات السوشيال ميديا مثل تيليجرام وفيسبوك وإنستجرام وتيك توك وواتساب وسناب شات وجوجل ويوتيوب مع استهداف دقيق للعملاء وتحليل النتائج لتحقيق أفضل وصول ومبيعات.',
+'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-bullhorn"></i>
 <h3>إعلانات ممولة</h3>
 </div>
 
+<!-- SOCIAL MEDIA -->
+
 <div class="card" onclick="openService(
 'إدارة السوشيال ميديا',
-'نقوم بإدارة صفحات السوشيال ميديا بشكل احترافي مع زيادة التفاعل والمتابعين وإنشاء محتوى جذاب يساعد على نمو نشاطك التجاري.'
+'نقوم بإدارة صفحات السوشيال ميديا بشكل احترافي مع زيادة التفاعل والمتابعين وإنشاء محتوى جذاب يساعد على نمو نشاطك التجاري.',
+'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-mobile-screen"></i>
 <h3>إدارة السوشيال ميديا</h3>
 </div>
 
-<div class="card" onclick="openService('خدمات تيليجرام 🚀','✅ إنشاء بوتات تيليجرام احترافية\n✅ تصميم بوتات طلبات ورد تلقائي\n✅ بوتات حجز واستقبال العملاء\n✅ إدارة قنوات وجروبات تيليجرام\n✅ زيادة أعضاء القنوات والجروبات\n✅ نشر تلقائي داخل القنوات\n✅ ربط البوتات بالمواقع والمتاجر\n✅ بوتات خدمات العملاء والدعم الفني\n✅ حماية وإدارة الجروبات\n✅ إعداد قنوات احترافية للنشاط التجاري\n✅ حملات إعلانية لقنوات تيليجرام\n✅ تصميم واجهات وأزرار للبوتات\n✅ خدمات تطوير وتعديل البوتات\n✅ ربط الدفع والطلبات داخل البوت\n✅ زيادة التفاعل والمشاهدات للقنوات')">
+<!-- TELEGRAM MAIN -->
+
+<div class="card" onclick="openService('خدمات تيليجرام 🚀','✅ إنشاء بوتات تيليجرام احترافية\n✅ تصميم بوتات طلبات ورد تلقائي\n✅ بوتات حجز واستقبال العملاء\n✅ إدارة قنوات وجروبات تيليجرام\n✅ زيادة أعضاء القنوات والجروبات\n✅ نشر تلقائي داخل القنوات\n✅ ربط البوتات بالمواقع والمتاجر\n✅ بوتات خدمات العملاء والدعم الفني\n✅ حماية وإدارة الجروبات\n✅ إعداد قنوات احترافية للنشاط التجاري\n✅ حملات إعلانية لقنوات تيليجرام\n✅ تصميم واجهات وأزرار للبوتات\n✅ خدمات تطوير وتعديل البوتات\n✅ ربط الدفع والطلبات داخل البوت\n✅ زيادة التفاعل والمشاهدات للقنوات', 'https://images.unsplash.com/photo-1624996379697-f01d168b1a52?auto=format&fit=crop&w=600&q=80')">
 <i class="fab fa-telegram"></i>
 <h3>خدمات تيليجرام</h3>
 </div>
 
+<!-- MANAGEMENT -->
+
 <div class="card" onclick="openService(
 'إدارة الصفحات',
-'نوفر إدارة كاملة للصفحات والمتاجر الإلكترونية مع متابعة الرسائل والتعليقات وتحسين ظهور النشاط التجاري.'
+'نوفر إدارة كاملة للصفحات والمتاجر الإلكترونية مع متابعة الرسائل والتعليقات وتحسين ظهور النشاط التجاري.',
+'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-gears"></i>
 <h3>إدارة الصفحات</h3>
 </div>
 
+<!-- GROWTH -->
+
 <div class="card" onclick="openService(
 'نمو الحسابات',
-'نساعدك على زيادة نمو حساباتك وتحسين الوصول والتفاعل بطريقة احترافية وآمنة.'
+'نساعدك على زيادة نمو حساباتك وتحسين الوصول والتفاعل بطريقة احترافية وآمنة.',
+'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-chart-line"></i>
 <h3>نمو الحسابات</h3>
 </div>
 
+<!-- WEBSITES -->
+
 <div class="card" onclick="openService(
 'تصميم وإنشاء المواقع',
-'نصمم مواقع إلكترونية احترافية سريعة ومتجاوبة مع جميع الأجهزة تساعدك على عرض خدماتك بشكل مميز.'
+'نصمم مواقع إلكترونية احترافية سريعة ومتجاوبة مع جميع الأجهزة تساعدك على عرض خدماتك بشكل مميز.',
+'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-laptop-code"></i>
 <h3>تصميم وإنشاء المواقع</h3>
 </div>
 
+<!-- FOLLOWERS SYSTEM -->
+
 <div class="card" onclick="openService(
 'تزويد المتابعين والأعضاء',
-'تزويد متابعين وأعضاء ومشتركين لجميع منصات السوشيال ميديا بشكل آمن وسريع:\n\nفيسبوك - إنستجرام - تيليجرام - تيك توك - واتساب - تويتر - يوتيوب - ثريدز - لينكد إن - بنترست - كواي.'
+'تزويد متابعين وأعضاء ومشتركين لجميع منصات السوشيال ميديا بشكل آمن وسريع:\n\nفيسبوك - إنستجرام - تيليجرام - تيك توك - واتساب - تويتر - يوتيوب - ثريدز - لينكد إن - بنترست - كواي.',
+'https://images.unsplash.com/photo-1539193143243-6442b66231b0?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-users-gear"></i>
 <h3>تزويد المتابعين</h3>
 </div>
 
+<!-- MISC SERVICES -->
+
 <div class="card" onclick="openService(
 'خدمات متنوعة',
-'✅ إنشاء تطبيق ( ابليكشن ) 🎰\n✅ بيع قنوات تلجرام وصفحات فيس وانستا وتيك توك وواتس اب جاهزة 💯\n✅ شحن العاب 🎮\n✅ تصميم ديزاين ولوجو وايموشن جيرافيك وهوية بصرية كاملة 🖼️\n✅ إعلانات في جرائد وصحف معروفة 📰\n✅ تعليقات المشاهير من حساباتهم الرسمية 🕺\n✅ اشتراكات الذكاء الاصطناعي ⌨️\n✅ اشتراكات شاهد ونتفلكس وواتش ايت 🖥️\n✅ اشتراكات كنفا 🎨\n✅ سحب بيانات كاملة لأي شخص من خلال رقم هاتفه ( لأستخدامات قانونية فقط )\n✅ حظر وإغلاق صفحة او حساب أو قناة على [ تليجرام - فيس بوك - انستجرام - تيك توك - واتس اب - يوت يوب - تويتر ] 📵\n✅ اشتراكات جاكو - شوبي - كيك IPTV\n✅ زيارات للموقع\n✅ مشاهدات للمقالات\n✅ تقييم خرائط جوجل'
+'✅ إنشاء تطبيق ( ابليكشن ) 🎰\n✅ بيع قنوات تلجرام وصفحات فيس وانستا وتيك توك وواتس اب جاهزة 💯\n✅ شحن العاب 🎮\n✅ تصميم ديزاين ولوجو وايموشن جيرافيك وهوية بصرية كاملة 🖼️\n✅ إعلانات في جرائد وصحف معروفة 📰\n✅ تعليقات المشاهير من حساباتهم الرسمية 🕺\n✅ اشتراكات الذكاء الاصطناعي ⌨️\n✅ اشتراكات شاهد ونتفلكس وواتش ايت 🖥️\n✅ اشتراكات كنفا 🎨\n✅ سحب بيانات كاملة لأي شخص من خلال رقم هاتفه ( لأستخدامات قانونية فقط )\n✅ حظر وإغلاق صفحة او حساب أو قناة على [ تليجرام - فيس بوك - انستجرام - تيك توك - واتس اب - يوت يوب - تويتر ] 📵\n✅ اشتراكات جاكو - شوبي - كيك IPTV\n✅ زيارات للموقع\n✅ مشاهدات للمقالات\n✅ تقييم خرائط جوجل',
+'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-cubes"></i>
 <h3>خدمات متنوعة</h3>
@@ -542,6 +590,8 @@ width:100%;
 
 </section>
 
+<!-- POPUP -->
+
 <div id="servicePopup" class="popup">
 
 <div class="popup-box">
@@ -550,11 +600,15 @@ width:100%;
 
 <h2 id="popupTitle"></h2>
 
+<img id="popupImage" class="popup-img" src="" alt="Service Image">
+
 <p id="popupText"></p>
 
 </div>
 
 </div>
+
+<!-- ABOUT -->
 
 <section id="about" class="section reveal">
 
@@ -569,6 +623,8 @@ width:100%;
 </p>
 
 </section>
+
+<!-- ORDER -->
 
 <section id="order" class="section reveal">
 
@@ -591,6 +647,8 @@ width:100%;
 </form>
 
 </section>
+
+<!-- SOCIAL MEDIA -->
 
 <section class="section reveal">
 
@@ -622,6 +680,8 @@ width:100%;
 
 </section>
 
+<!-- CONTACT -->
+
 <section class="section reveal">
 
 <h2>تواصل معنا</h2>
@@ -632,9 +692,13 @@ width:100%;
 
 </section>
 
+<!-- WHATSAPP -->
+
 <a class="whatsapp" href="https://wa.me/201024941083">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
+
+<!-- FOOTER -->
 
 <footer>
 © 2026 التاجر للدعاية والإعلان
@@ -738,11 +802,13 @@ window.addEventListener("scroll",counter);
 
 counter();
 
-function openService(title,text){
+function openService(title,text,imgUrl){
 
 document.getElementById("popupTitle").innerText=title;
 
 document.getElementById("popupText").innerText=text;
+
+document.getElementById("popupImage").src=imgUrl;
 
 document.getElementById("servicePopup").style.display="flex";
 
