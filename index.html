@@ -23,6 +23,47 @@ overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
+/* ================= TICKER (الشريط المتحرك الجديد) ================= */
+
+.top-ticker {
+background: linear-gradient(45deg, #00aaff, #00ffd5);
+color: #000;
+overflow: hidden;
+position: relative;
+width: 100%;
+height: 40px;
+display: flex;
+align-items: center;
+z-index: 1001; /* أعلى من القائمة */
+font-weight: bold;
+font-size: 14px;
+box-shadow: 0 2px 10px rgba(0, 255, 213, 0.2);
+}
+
+.ticker-wrap {
+display: flex;
+width: 100%;
+padding-left: 100%;
+box-sizing: content-box;
+}
+
+.ticker-item {
+display: inline-block;
+white-space: nowrap;
+padding: 0 2rem;
+animation: ticker 35s linear infinite;
+}
+
+@keyframes ticker {
+0% {
+transform: translate3d(0, 0, 0);
+visibility: visible;
+}
+100% {
+transform: translate3d(100%, 0, 0); /* متوافق مع اتجاه RTL من اليمين لليسار */
+}
+}
+
 /* ================= PARTICLES ================= */
 
 #particles-js{
@@ -140,6 +181,10 @@ z-index:-1;
 
 #services::before{
 background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');
+}
+
+#why-us::before{
+background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80');
 }
 
 #about::before{
@@ -427,6 +472,15 @@ width:100%;
 
 <body>
 
+<!-- SHARIT (الشريط المتحرك العلوي الجديد) -->
+<div class="top-ticker">
+  <div class="ticker-wrap">
+    <div class="ticker-item">
+      &nbsp;&nbsp;&nbsp;&nbsp; ★ براندات أحذية وشنط &nbsp;&nbsp;&nbsp;&nbsp; ★ براندات اكسسوارات وميكب &nbsp;&nbsp;&nbsp;&nbsp; ★ براندات ادوات منزلية ومفروشات &nbsp;&nbsp;&nbsp;&nbsp; ★ براندات ملابس &nbsp;&nbsp;&nbsp;&nbsp; ★ مكاتب ادوات مدرسية ولعب اطفال &nbsp;&nbsp;&nbsp;&nbsp; ★ مصانع ومكاتب الاثاث والديكور &nbsp;&nbsp;&nbsp;&nbsp; ★ المصانع والورش &nbsp;&nbsp;&nbsp;&nbsp; ★ معارض السيارات &nbsp;&nbsp;&nbsp;&nbsp; ★ شركات الأمن والنظافة &nbsp;&nbsp;&nbsp;&nbsp; ★ العيادات الطبية &nbsp;&nbsp;&nbsp;&nbsp; ★ الصيدليات &nbsp;&nbsp;&nbsp;&nbsp; ★ المزارع &nbsp;&nbsp;&nbsp;&nbsp; ★ مراكز التجميل و الكوافير &nbsp;&nbsp;&nbsp;&nbsp; ★ شركات الشحن &nbsp;&nbsp;&nbsp;&nbsp; ★ الجيمات والأندية الرياضية &nbsp;&nbsp;&nbsp;&nbsp; ★ شركات العقارات والسياحة &nbsp;&nbsp;&nbsp;&nbsp; ★ تجار السلع الغذائية &nbsp;&nbsp;&nbsp;&nbsp; ★ محلات الموبايلات
+    </div>
+  </div>
+</div>
+
 <div id="particles-js"></div>
 
 <!-- LOADER -->
@@ -590,7 +644,7 @@ width:100%;
 
 <div class="card" onclick="openService(
 'خدمات متنوعة',
-'✅ إنشاء تطبيق ( ابليكشن ) 🎰\n✅ بيع قنوات تلجرام وصفحات فيس وانستا وتيك توك وواتس اب جاهزة 💯\n✅ شحن العاب 🎮\n✅ تصميم ديزاين ولوجو وايموشن جيرافيك وهوية بصرية كاملة 🖼️\n✅ إعلانات في جرائد وصحف معروفة 📰\n✅ تعليقات المشاهير من حساباتهم الرسمية 🕺\n✅ اشتراخاص الذكاء الاصطناعي ⌨️\n✅ اشتراكات شاهد ونتفلكس وواتش ايت 🖥️\n✅ اشتراكات كنفا 🎨\n✅ سحب بيانات كاملة لأي شخص من خلال رقم هاتفه ( لأستخدامات قانونية فقط )\n✅ حظر وإغلاق صفحة او حساب أو قناة على [ تليجرام - فيس بوك - انستجرام - تيك توك - واتس اب - يوت يوب - تويتر ] 📵\n✅ اشتراكات جاكو - شوبي - كيك IPTV\n✅ زيارات للموقع\n✅ مشاهدات للمقالات\n✅ تقييم خرائط جوجل',
+'✅ إنشاء تطبيق ( ابليكشن ) 🎰\n✅ بيع قنوات تلجرام وصفحات فيس وانستا وتيك توك وواتس اب جاهزة 💯\n✅ شحن العاب 🎮\n✅ تصميم ديزاين ولوجو وايموشن جيرافيك هوية بصرية كاملة 🖼️\n✅ إعلانات في جرائد وصحف معروفة 📰\n✅ تعليقات المشاهير من حساباتهم الرسمية 🕺\n✅ اشتراخاص الذكاء الاصطناعي ⌨️\n✅ اشتراكات شاهد ونتفلكس وواتش ايت 🖥️\n✅ اشتراكات كنفا 🎨\n✅ سحب بيانات كاملة لأي شخص من خلال رقم هاتفه ( لأستخدامات قانونية فقط )\n✅ حظر وإغلاق صفحة او حساب أو قناة على [ تليجرام - فيس بوك - انستجرام - تيك توك - واتس اب - يوت يوب - تويتر ] 📵\n✅ اشتراكات جاكو - شوبي - كيك IPTV\n✅ زيارات للموقع\n✅ مشاهدات للمقالات\n✅ تقييم خرائط جوجل',
 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80'
 )">
 <i class="fas fa-cubes"></i>
@@ -599,6 +653,38 @@ width:100%;
 
 </div>
 
+</section>
+
+<!-- WHY CHOOSE US (القسم الجديد المضاف تحت الخدمات مباشرة) -->
+<section id="why-us" class="section reveal">
+  <h2>لماذا تختار شركة التاجر؟</h2>
+  <div class="grid">
+    
+    <div class="card">
+      <i class="fas fa-bullseye"></i>
+      <h3>استهداف دقيق ذكي</h3>
+      <p style="font-size:14px; opacity:0.8; line-height:1.6; margin-top:10px;">نصل بإعلاناتك للعميل المهتم بنشاطك التجاري تحديداً لضمان أعلى نسبة مبيعات وأقل تكلفة.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-bolt"></i>
+      <h3>سرعة التنفيذ والرد</h3>
+      <p style="font-size:14px; opacity:0.8; line-height:1.6; margin-top:10px;">نلتزم بإنهاء البوتات، التصاميم، والمواقع وحملاتك الإعلانية في أسرع وقت وبأعلى كفاءة.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-shield-halved"></i>
+      <h3>أمان وموثوقية كاملة</h3>
+      <p style="font-size:14px; opacity:0.8; line-height:1.6; margin-top:10px;">جميع خدمات تزويد المتابعين، دعم الحسابات، وحماية المجموعات تتم بطرق آمنة وقانونية 100%.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-headset"></i>
+      <h3>دعم فني مستمر</h3>
+      <p style="font-size:14px; opacity:0.8; line-height:1.6; margin-top:10px;">فريقنا معك دائماً لمتابعة نتائج الحملات، تعديل البوتات وتطويرها وتقديم الاستشارات التسويقية.</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- POPUP -->
